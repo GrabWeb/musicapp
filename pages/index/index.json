@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "cloudCountry":"/components/cloudCountry/cloudCountry"
+  }
+}

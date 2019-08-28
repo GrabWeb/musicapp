@@ -1,0 +1,63 @@
+page{
+  background-color: #DB2C1F;
+}
+.logo_container{
+  text-align: center;
+  position: relative;
+  top: 175rpx;
+}
+.logo{
+  width: 150rpx;
+  height: 150rpx;
+}
+.btn_container{
+  position: relative;
+  top: 500rpx;
+}
+button{
+  border-radius: 100rpx;
+  width: 550rpx;
+  font-weight: 550;
+  margin-bottom: 35rpx;
+}
+.login{
+  background-color: white;
+  color: #DB2C1F;
+}
+.experience{
+  background-color: #DB2C1F;
+  color:white;
+  border: 4rpx solid white;
+}
+.agree{
+  position: relative;
+  top:550rpx;
+  text-align: center;
+}
+.icon{
+  position: relative;
+  top:600rpx;
+  display: flex;
+  justify-content: space-between;
+  padding:0 110rpx;
+}
+.icon image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.agree view{
+  display: inline-block;
+}
+.agree image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.agree text{
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 26rpx; 
+}
+.agree .t{
+  color: rgba(255, 255, 255, 0.8);
+}

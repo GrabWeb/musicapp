@@ -1,0 +1,23 @@
+<import is="search" src="../../components/search/search.wxml" />
+<view>
+    <!-- 搜索 -->
+    <view >
+        <template is="search"></template>
+    </view>
+    <!-- 滑动导航 -->
+    <scroll-view class="nav" scroll-x="ture">
+        <text>推荐</text>
+        <text>LOOK直播</text>
+        <text>现场</text>
+        <text>翻唱</text>
+        <text>广场</text>
+        <text>MV</text>
+        <text>舞蹈</text>
+        <text>ACG音乐</text>
+    </scroll-view>
+    <!-- 视频 -->
+    <view>
+        <videoBox video="{{video}}"></videoBox>
+    </view>
+    
+</view>

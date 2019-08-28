@@ -1,0 +1,123 @@
+<import is="" src="../../components/search/search.wxml" />
+<import is="" src="../../components/cloudCountry/cloudCountry.wxml" />
+<view>
+    <!-- 搜索框 -->
+    <view class="search">
+        <template is="search"></template>
+    </view>
+    <!-- 轮播 -->
+    <view class="lunboCaontainer">
+        <swiper autoplay indicator-dots interval="1000">
+            <swiper-item class="" item-id="" wx:for="{{banner}}" wx:key="{{index}}">
+                <image mode="aspectFill" class="" src="{{item.imageUrl}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 分类 -->  
+    <view class="categrory">
+        <view>
+            <image src="/img/tuijian.png"></image><text>每日推荐</text>
+        </view>
+        <view>
+            <image src="/img/gedan.png"></image><text>歌单</text>
+        </view>
+        <view>
+            <image src="/img/paihang.png"></image><text>排行榜</text>
+        </view>
+        <view>
+            <image src="/img/diantai.png"></image><text>电台</text>
+        </view>
+        <view>
+            <image src="/img/zhibo.png"></image><text>直播</text>
+        </view>  
+    </view>
+   <!-- hr线 -->
+   <view class="line"> </view>
+    <!-- 推荐歌单 -->
+    <view class="songList">
+        <!-- 标题 -->
+        <view class="title">
+            <text class="left">推荐歌单</text>
+            <text class="right">歌单广场</text>
+        </view>
+        <!-- 歌单大容器 -->
+        <view class="container">
+            <!-- 歌单 -->
+            <view class="song" wx:for="{{personalized}}" wx:key="{{index}}">
+                <!-- 右上角播放量 -->
+                <view class="Amount">
+                    <wxs module="ceil">
+                        var ceil = function(num){
+                            return Math.ceil(num/10000)
+                        }
+                        module.exports = {
+                            ceil : ceil
+                        }
+                    </wxs>
+                    <text>▷{{ceil.ceil(item.playCount)}}万</text>
+                    <!-- <text>▷{{item.playCount}}万</text> -->
+                </view>
+                <image class="img" src="{{item.picUrl}}" />
+                <text class="text">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 新碟新歌 -->
+    <!-- 新碟 -->
+    <view class="newSong" wx:if="{{newSongFlag}}">
+        <!-- 标题 -->
+        <view class="title">
+            <view class="left">
+                <text class="disc">新碟</text>
+                <text>|</text>
+                <text bindtap="toSong"> 新歌</text>
+            </view>
+            <text class="right">更多新碟</text>
+        </view>
+        <!-- 歌单大容器 -->
+        <view class="container">
+            <!-- 单曲 -->
+            <view class="song" wx:for="{{newDisc}}" wx:key="{{index}}">
+                <image class="img" src="{{item.picUrl}}"/>
+                <text class="text">{{item.name}}</text>
+                <text class="name">{{item.artist.name}}</text>
+            </view>
+        </view>
+    </view>   
+    <!-- 新歌 -->
+    <view class="newSong"  wx:else>
+        <!-- 标题 -->
+        <view class="title">
+            <view class="left">
+                <text bindtap="toDisc">新碟 </text>
+                <text>|</text>
+                <text class="song"> 新歌</text>
+            </view>
+            <text class="right">新歌推荐</text>
+        </view>
+        <!-- 歌单大容器 -->
+        <view class="container">
+            <!-- 单曲 -->
+            <view class="song" wx:for="{{newSong}}" wx:key="{{index}}">
+                <image class="img" src="{{item.album.picUrl}}"/>
+                <text class="text">{{item.name}}</text>
+                <text class="name">{{item.artist.name}}</text>
+            </view>
+        </view>
+    </view>  
+    <!-- 粗分隔条 -->
+    <view class="currentLine"></view>
+    <!-- 云村精选 -->
+    <view>
+         <!-- 标题 -->
+        <view class="cloudCountry-title">
+            <text class="left">云村精选</text>
+            <view>
+                <image src="/img/shuaxin.png" />
+                <text class="right">获取新内容</text>
+            </view>
+        </view>
+        <!-- <template is="cloudCountry"></template> -->
+        <cloudCountry personalizedMv="{{personalizedMv}}" mvUrl="{{mvUrl}}"></cloudCountry>
+    </view>
+</view>

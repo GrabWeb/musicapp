@@ -1,0 +1,30 @@
+<view class="videoBox-container" wx:for="{{video}}" wx:key="index">
+    <view class="videoBox-video">
+        <!-- 视频 -->
+        <video src="{{item.url}}" data-index="{{index}}" poster="{{item.cover}}" bindplay="getMvUrl"></video>
+        <!-- 文字 -->
+        <view class="textContent">
+            <!-- title -->
+            <text>{{item.name}}</text>
+            <!-- avatar  接口没有相关头像，所以注掉 -->
+            <!-- <image src="/img/avatar1.png"/> -->
+        </view>
+    </view>
+    <!-- 互动区域 -->
+    <view class="videoBox-interaction">
+        <!-- 点赞 评论 -->
+        <view class="avatar">
+            <image src="/img/avatar1.png" />
+            <text>{{item.artists.name}}</text>
+        </view>
+        <view class="like">
+            <image src="/img/dianzan.png" />
+            <text>{{item.likeCount}}</text>
+            <image src="/img/comments.png" />
+            <text>{{item.commentCount}}</text>
+            <image src="/img/more.png" />
+        </view>
+    </view>
+    <!-- 分隔条 -->
+<view class="currentLine"></view>
+</view>
